@@ -20,34 +20,60 @@ const Monthly = ({ Today }) => {
   const [currMonth, setCurrMonth] = useState(Today.month());
   const [currYear, setCurrYear] = useState(Today.year());
   const [isLoading, setIsLoading] = useState(true);
-  const Month = [
+  const [Month, setMonth] = useState([
     createDaysForPreviousMonth(currYear, currMonth),
     createDaysForCurrentMonth(currYear, currMonth),
     createDaysForNextMonth(currYear, currMonth),
-  ];
+  ]);
   const [days, setDays] = useState([]);
   const [prevDays, setPrevDays] = useState([]);
   const [nextDays, setNextDays] = useState([]);
+  const updateValues = () => {
+    setDays(Month[1]);
+    setPrevDays(Month[0]);
+    setNextDays(Month[2]);
+  };
   const prevMonth = () => {
     setIsLoading(true);
     if (currMonth === 0) {
       setCurrMonth(11);
       setCurrYear(currYear - 1);
+      setMonth([
+        createDaysForPreviousMonth(currYear, currMonth),
+        createDaysForCurrentMonth(currYear, currMonth),
+        createDaysForNextMonth(currYear, currMonth),
+      ]);
     } else {
       setCurrMonth(currMonth - 1);
+      setMonth([
+        createDaysForPreviousMonth(currYear, currMonth),
+        createDaysForCurrentMonth(currYear, currMonth),
+        createDaysForNextMonth(currYear, currMonth),
+      ]);
     }
     setIsLoading(false);
+    updateValues();
   };
   const nextMonth = () => {
-    console.log("nextMonth");
     setIsLoading(true);
     if (currMonth === 11) {
       setCurrMonth(0);
       setCurrYear(currYear + 1);
+      setMonth([
+        createDaysForPreviousMonth(currYear, currMonth),
+        createDaysForCurrentMonth(currYear, currMonth),
+        createDaysForNextMonth(currYear, currMonth),
+      ]);
     } else {
       setCurrMonth(currMonth + 1);
+      setMonth([
+        createDaysForPreviousMonth(currYear, currMonth),
+        createDaysForCurrentMonth(currYear, currMonth),
+        createDaysForNextMonth(currYear, currMonth),
+      ]);
     }
     setIsLoading(false);
+    updateValues();
   };
   useEffect(() => {
     setIsLoading(true);
@@ -77,7 +103,13 @@ const Monthly = ({ Today }) => {
           );
         })}
       </div>
-      <div style={{ display: "flex", flexDirection: "row", flexWrap: "wrap" }}>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          flexWrap: "wrap",
+        }}
+      >
         {prevDays.map((day, index) => (
           <DaySlot
             key={prevDays[index].date}
