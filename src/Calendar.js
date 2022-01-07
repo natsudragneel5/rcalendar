@@ -1,17 +1,13 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import dayjs from "dayjs";
+import { useMonth } from "./context/month.context";
 import Daily from "./Daily";
 import logo from "./logo.svg";
 import Monthly from "./Monthly";
 import Weekly from "./Weekly";
-import { getDay, getMonth } from "./helper";
-
+import { MonthProvider } from "./context/month.context";
 const Calendar = () => {
   const Today = dayjs();
-  const ThisDay = Today.date();
-  var ThisMonth = getMonth(Today.month());
-  console.log("Today object", Today);
-  const ThisYear = Today.year();
   const [activeType, setActiveType] = useState("Monthly");
   const switchToMonthly = () => {
     if (activeType !== "Monthly") {
@@ -28,13 +24,9 @@ const Calendar = () => {
       setActiveType("Daily");
     }
   };
-  console.log("activeType", activeType);
-  console.log(
-    "Today",
-    ThisMonth + " " + ThisDay + " " + getDay(Today.day()) + " " + ThisYear
-  );
+
   return (
-    <>
+    <div style={{ display: "flex", flexDirection: "column" }}>
       <div>
         <img
           alt="logo"
@@ -46,6 +38,7 @@ const Calendar = () => {
         <label style={{ float: "left", fontSize: "40px" }}>
           <b>R</b>Calendar
         </label>
+
         <select
           style={{ float: "right", marginTop: "10px", marginRight: "10px" }}
         >
@@ -55,11 +48,11 @@ const Calendar = () => {
         </select>
       </div>
       <div className="CalendarGrid">
-        {activeType === "Monthly" && <Monthly />}
-        {activeType === "Weekly" && <Weekly />}
-        {activeType === "Daily" && <Daily />}
+        {activeType === "Monthly" && <Monthly Today={Today} />}
+        {activeType === "Weekly" && <Weekly Today={Today} />}
+        {activeType === "Daily" && <Daily Today={Today} />}
       </div>
-    </>
+    </div>
   );
 };
 
