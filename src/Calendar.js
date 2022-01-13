@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from "react";
 import dayjs from "dayjs";
-import { useMonth } from "./context/month.context";
 import Daily from "./Daily";
 import logo from "./logo.svg";
 import Monthly from "./Monthly";
 import Weekly from "./Weekly";
-import { MonthProvider } from "./context/month.context";
 const Calendar = () => {
   const Today = dayjs();
   const [activeType, setActiveType] = useState("Monthly");

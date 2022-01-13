@@ -1,22 +1,23 @@
 .App {
   text-align: center;
 }
+.Event-Item {
+  background-color: aqua;
+  font-size: medium;
+  min-height: 3vh;
+  min-width: 1vw;
+  white-space: nowrap;
+  outline: solid 1px gray;
+}
+.TimeSlot {
+  min-height: 5vh;
+}
 .Dayslot {
   outline: solid 1px black;
   font-size: xx-large;
   padding-bottom: 10vh;
+  max-height: 6vh;
 }
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -30,13 +31,4 @@
 
 .App-link {
   color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }

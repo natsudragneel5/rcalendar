@@ -75,8 +75,8 @@ export function getMonth(month_no) {
   }
   return month_no;
 }
-function getNumberOfDaysInMonth(year, month) {
-  return dayjs(`${year}-${month}-01`).daysInMonth();
+export function getNumberOfDaysInMonth(year, month) {
+  return dayjs(`${year}-${month + 1}-01`).daysInMonth();
 }
 export function createDaysForCurrentMonth(year, month) {
   const data = [...Array(getNumberOfDaysInMonth(year, month))].map(
@@ -90,7 +90,7 @@ export function createDaysForCurrentMonth(year, month) {
   );
   return data;
 }
-function getWeekday(date) {
+export function getWeekday(date) {
   return dayjs(date).weekday();
 }
 export function createDaysForPreviousMonth(year, month) {
@@ -106,7 +106,7 @@ export function createDaysForPreviousMonth(year, month) {
   return [...Array(visibleNumberOfDaysFromPreviousMonth)].map((day, index) => {
     return {
       date: dayjs(
-        `${previousMonth.year()}-${previousMonth.month() + 1}-${
+        `${previousMonth.year()}-${month + 1}-${
           previousMonthLastMondayDayOfMonth + index
         }`
       ).format("YYYY-MM-DD"),
@@ -127,11 +127,58 @@ export function createDaysForNextMonth(year, month) {
     : lastDayOfTheMonthWeekday;
   return [...Array(visibleNumberOfDaysFromNextMonth)].map((day, index) => {
     return {
-      date: dayjs(
-        `${nextMonth.year()}-${nextMonth.month() + 1}-${index + 1}`
-      ).format("YYYY-MM-DD"),
+      date: dayjs(`${nextMonth.year()}-${month + 1}-${index + 1}`).format(
+        "YYYY-MM-DD"
+      ),
       dayOfMonth: index + 1,
       isCurrentMonth: false,
     };
   });
+}
+export function createDaysForWeek(year, month) {
+  let data = [];
+  const prevMonth = createDaysForPreviousMonth(year, month);
+  const currMonth = createDaysForCurrentMonth(year, month);
+  const nextMonth = createDaysForNextMonth(year, month);
+  let i = 0;
+  prevMonth.map((days) => {
+    data[i] = days;
+    i++;
+    return null;
+  });
+  currMonth.map((days) => {
+    data[i] = days;
+    i++;
+    return null;
+  });
+  nextMonth.map((days) => {
+    data[i] = days;
+    i++;
+    return null;
+  });
+  return data;
+}
+export function getMaxWeekNumber(year, month) {
+  const maxWeekNumber = createDaysForWeek(year, month).length / 7;
+  return maxWeekNumber - 1;
+}
+export function getInitialWeekNumber(year, month) {
+  const DaysForMonth = createDaysForWeek(year, month);
+  let maxWeekNumber = DaysForMonth.length / 7;
+  maxWeekNumber = maxWeekNumber - 1;
+  let today = DaysForMonth.map((x, index) => {
+    if (x.date === dayjs().format("YYYY-MM-DD")) {
+      return index;
+    }
+  });
+  let k = 0;
+  for (let i = 0; i < DaysForMonth.length; i++) {
+    if (i % 7 === 0) {
+      k++;
+    }
+    if (DaysForMonth[i].date === dayjs().format("YYYY-MM-DD")) {
+      break;
+    }
+  }
+  return k - 1; //dayjs().format("YYYY-MM-DD"); //getDay(getWeekday(dayjs()))
 }
