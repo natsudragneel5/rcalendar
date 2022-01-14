@@ -4,13 +4,7 @@ import TimedEventContainer from "../components/TimedEventContainer";
 
 const TimeSlot = ({ date, day, currMonth, startTime, endTime }) => {
   return (
-    <div
-      className="TimeSlot"
-      style={{
-        outline: "solid 1px black",
-        width: "14.28vw",
-      }}
-    >
+    <div className="TimeSlot">
       <TimedEventContainer
         date={date}
         startTime={startTime}

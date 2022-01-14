@@ -17,7 +17,6 @@ const EventItem = ({ date, id, name, img }) => {
       style={{ border: isDragging ? "2px solid pink" : "" }}
       className="Event-Item"
     >
-      {isDragging && console.log("Event ", id, " is being dragged")}
       {name}
       {img !== undefined && <img src={img} width="40px" height="40px" />}
     </div>

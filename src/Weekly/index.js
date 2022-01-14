@@ -181,6 +181,8 @@ const Weekly = ({ Today }) => {
           </div>
           {currWeekDays.map((day, index) => (
             <TimeSlot
+              startTime={"12:00 am"}
+              endTime={"1:00 am"}
               key={currWeekDays[index].date}
               date={currWeekDays[index].date}
               day={currWeekDays[index].dayOfMonth}
@@ -203,6 +205,8 @@ const Weekly = ({ Today }) => {
           </div>
           {currWeekDays.map((day, index) => (
             <TimeSlot
+              startTime={"1:00 am"}
+              endTime={"2:00 am"}
               key={currWeekDays[index].date}
               date={currWeekDays[index].date}
               day={currWeekDays[index].dayOfMonth}
@@ -225,6 +229,8 @@ const Weekly = ({ Today }) => {
           </div>
           {currWeekDays.map((day, index) => (
             <TimeSlot
+              startTime={"2:00 am"}
+              endTime={"3:00 am"}
               key={currWeekDays[index].date}
               date={currWeekDays[index].date}
               day={currWeekDays[index].dayOfMonth}
@@ -247,6 +253,8 @@ const Weekly = ({ Today }) => {
           </div>
           {currWeekDays.map((day, index) => (
             <TimeSlot
+              startTime={"3:00 am"}
+              endTime={"4:00 am"}
               key={currWeekDays[index].date}
               date={currWeekDays[index].date}
               day={currWeekDays[index].dayOfMonth}
@@ -269,6 +277,8 @@ const Weekly = ({ Today }) => {
           </div>
           {currWeekDays.map((day, index) => (
             <TimeSlot
+              startTime={"4:00 am"}
+              endTime={"5:00 am"}
               key={currWeekDays[index].date}
               date={currWeekDays[index].date}
               day={currWeekDays[index].dayOfMonth}
@@ -291,6 +301,8 @@ const Weekly = ({ Today }) => {
           </div>
           {currWeekDays.map((day, index) => (
             <TimeSlot
+              startTime={"5:00 am"}
+              endTime={"6:00 am"}
               key={currWeekDays[index].date}
               date={currWeekDays[index].date}
               day={currWeekDays[index].dayOfMonth}
@@ -313,6 +325,8 @@ const Weekly = ({ Today }) => {
           </div>
           {currWeekDays.map((day, index) => (
             <TimeSlot
+              startTime={"6:00 am"}
+              endTime={"7:00 am"}
               key={currWeekDays[index].date}
               date={currWeekDays[index].date}
               day={currWeekDays[index].dayOfMonth}
@@ -335,6 +349,8 @@ const Weekly = ({ Today }) => {
           </div>
           {currWeekDays.map((day, index) => (
             <TimeSlot
+              startTime={"7:00 am"}
+              endTime={"8:00 am"}
               key={currWeekDays[index].date}
               date={currWeekDays[index].date}
               day={currWeekDays[index].dayOfMonth}
@@ -357,6 +373,8 @@ const Weekly = ({ Today }) => {
           </div>
           {currWeekDays.map((day, index) => (
             <TimeSlot
+              startTime={"9:00 am"}
+              endTime={"10:00 am"}
               key={currWeekDays[index].date}
               date={currWeekDays[index].date}
               day={currWeekDays[index].dayOfMonth}
@@ -379,6 +397,8 @@ const Weekly = ({ Today }) => {
           </div>
           {currWeekDays.map((day, index) => (
             <TimeSlot
+              startTime={"11:00 am"}
+              endTime={"12:00 pm"}
               key={currWeekDays[index].date}
               date={currWeekDays[index].date}
               day={currWeekDays[index].dayOfMonth}
@@ -401,6 +421,8 @@ const Weekly = ({ Today }) => {
           </div>
           {currWeekDays.map((day, index) => (
             <TimeSlot
+              startTime={"12:00 pm"}
+              endTime={"1:00 pm"}
               key={currWeekDays[index].date}
               date={currWeekDays[index].date}
               day={currWeekDays[index].dayOfMonth}
@@ -423,6 +445,8 @@ const Weekly = ({ Today }) => {
           </div>
           {currWeekDays.map((day, index) => (
             <TimeSlot
+              startTime={"1:00 pm"}
+              endTime={"2:00 pm"}
               key={currWeekDays[index].date}
               date={currWeekDays[index].date}
               day={currWeekDays[index].dayOfMonth}
@@ -445,6 +469,8 @@ const Weekly = ({ Today }) => {
           </div>
           {currWeekDays.map((day, index) => (
             <TimeSlot
+              startTime={"2:00 pm"}
+              endTime={"3:00 pm"}
               key={currWeekDays[index].date}
               date={currWeekDays[index].date}
               day={currWeekDays[index].dayOfMonth}
@@ -467,6 +493,8 @@ const Weekly = ({ Today }) => {
           </div>
           {currWeekDays.map((day, index) => (
             <TimeSlot
+              startTime={"3:00 pm"}
+              endTime={"4:00 pm"}
               key={currWeekDays[index].date}
               date={currWeekDays[index].date}
               day={currWeekDays[index].dayOfMonth}
@@ -489,6 +517,8 @@ const Weekly = ({ Today }) => {
           </div>
           {currWeekDays.map((day, index) => (
             <TimeSlot
+              startTime={"4:00 pm"}
+              endTime={"5:00 pm"}
               key={currWeekDays[index].date}
               date={currWeekDays[index].date}
               day={currWeekDays[index].dayOfMonth}
@@ -511,6 +541,8 @@ const Weekly = ({ Today }) => {
           </div>
           {currWeekDays.map((day, index) => (
             <TimeSlot
+              startTime={"5:00 pm"}
+              endTime={"6:00 pm"}
               key={currWeekDays[index].date}
               date={currWeekDays[index].date}
               day={currWeekDays[index].dayOfMonth}
@@ -533,6 +565,8 @@ const Weekly = ({ Today }) => {
           </div>
           {currWeekDays.map((day, index) => (
             <TimeSlot
+              startTime={"6:00 pm"}
+              endTime={"7:00 pm"}
               key={currWeekDays[index].date}
               date={currWeekDays[index].date}
               day={currWeekDays[index].dayOfMonth}
@@ -555,6 +589,8 @@ const Weekly = ({ Today }) => {
           </div>
           {currWeekDays.map((day, index) => (
             <TimeSlot
+              startTime={"7:00 pm"}
+              endTime={"8:00 pm"}
               key={currWeekDays[index].date}
               date={currWeekDays[index].date}
               day={currWeekDays[index].dayOfMonth}
@@ -577,6 +613,8 @@ const Weekly = ({ Today }) => {
           </div>
           {currWeekDays.map((day, index) => (
             <TimeSlot
+              startTime={"8:00 pm"}
+              endTime={"9:00 pm"}
               key={currWeekDays[index].date}
               date={currWeekDays[index].date}
               day={currWeekDays[index].dayOfMonth}
@@ -599,6 +637,8 @@ const Weekly = ({ Today }) => {
           </div>
           {currWeekDays.map((day, index) => (
             <TimeSlot
+              startTime={"9:00 pm"}
+              endTime={"10:00 pm"}
               key={currWeekDays[index].date}
               date={currWeekDays[index].date}
               day={currWeekDays[index].dayOfMonth}
@@ -621,6 +661,8 @@ const Weekly = ({ Today }) => {
           </div>
           {currWeekDays.map((day, index) => (
             <TimeSlot
+              startTime={"10:00 pm"}
+              endTime={"11:00 pm"}
               key={currWeekDays[index].date}
               date={currWeekDays[index].date}
               day={currWeekDays[index].dayOfMonth}
@@ -643,6 +685,8 @@ const Weekly = ({ Today }) => {
           </div>
           {currWeekDays.map((day, index) => (
             <TimeSlot
+              startTime={"11:00 pm"}
+              endTime={"12:00 am"}
               key={currWeekDays[index].date}
               date={currWeekDays[index].date}
               day={currWeekDays[index].dayOfMonth}
