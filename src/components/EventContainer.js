@@ -32,7 +32,6 @@ const EventContainer = ({ date }) => {
     <div
       className="Event-Container"
       ref={drop}
-      onClick={handleShow}
       style={{
         border: isOver ? "2px solid pink" : "",
         backgroundColor: "Highlight",
