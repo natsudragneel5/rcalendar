@@ -103,12 +103,12 @@ export function createDaysForPreviousMonth(year, month) {
   const previousMonthLastMondayDayOfMonth = dayjs(currentMonthDays[0].date)
     .subtract(visibleNumberOfDaysFromPreviousMonth, "day")
     .date();
+  //const d=
   return [...Array(visibleNumberOfDaysFromPreviousMonth)].map((day, index) => {
+    let d = previousMonthLastMondayDayOfMonth + index;
     return {
       date: dayjs(
-        `${previousMonth.year()}-${month + 1}-${
-          previousMonthLastMondayDayOfMonth + index
-        }`
+        `${previousMonth.year()}-${previousMonth.month() + 2}-${d}`
       ).format("YYYY-MM-DD"),
       dayOfMonth: previousMonthLastMondayDayOfMonth + index,
       isCurrentMonth: false,
@@ -127,9 +127,9 @@ export function createDaysForNextMonth(year, month) {
     : lastDayOfTheMonthWeekday;
   return [...Array(visibleNumberOfDaysFromNextMonth)].map((day, index) => {
     return {
-      date: dayjs(`${nextMonth.year()}-${month + 1}-${index + 1}`).format(
-        "YYYY-MM-DD"
-      ),
+      date: dayjs(
+        `${nextMonth.year()}-${nextMonth.month() + 2}-${index + 1}`
+      ).format("YYYY-MM-DD"),
       dayOfMonth: index + 1,
       isCurrentMonth: false,
     };

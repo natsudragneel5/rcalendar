@@ -4,7 +4,6 @@ const initialData = [
     id: 1,
     name: "Birthday",
     startDate: "2022-01-08",
-    endDate: "2022-1-8",
     startTime: "12:00 am",
     endTime: "1:00 am",
     image: "https://bit.ly/3FmdIoz",
@@ -15,14 +14,23 @@ const initialData = [
     startDate: "2022-01-08",
     startTime: "1:00 am",
     endTime: "2:00 am",
-    endDate: "2022-1-8",
   },
 ];
 
 const EventReducer = (state, action) => {
   switch (action.type) {
     case "AddEvent":
-      return state;
+      const addArray = [...state];
+      console.log(action.payload);
+      addArray.push({
+        id: action.payload.id,
+        name: action.payload.name,
+        startDate: action.payload.Date,
+        startTime: action.payload.startTime,
+        endTime: action.payload.endTime,
+        image: action.payload.image === "" ? null : action.payload.image,
+      });
+      return addArray;
     case "RemoveEvent":
       return state;
     case "ModifyEventWithTime":
@@ -59,6 +67,7 @@ const EventReducer = (state, action) => {
 const EventContext = createContext();
 export const EventProvider = ({ children }) => {
   const [calendarEvent, eventDispatch] = useReducer(EventReducer, initialData);
+  console.log(calendarEvent);
   return (
     <EventContext.Provider value={{ calendarEvent, eventDispatch }}>
       {children}

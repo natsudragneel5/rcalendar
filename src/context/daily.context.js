@@ -41,12 +41,6 @@ const DayReducer = (action, state) => {
 const DayContext = createContext();
 export const DayProvider = ({ children }) => {
   const [currDay, dayDispatch] = useReducer(DayReducer, initialData);
-  const [weekDay, setWeekDay] = useState(currDay.WeekDay);
-  const [Day, setDay] = useState(currDay.Day);
-  const [Date, setDate] = useState(currDay.Date);
-  const [Month, setMonth] = useState(currDay.Month);
-  const [Year, setYear] = useState(currDay.Year);
-  console.log(currDay);
   return (
     <DayContext.Provider value={{ currDay, dayDispatch }}>
       {children}

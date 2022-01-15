@@ -1,11 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { useDrop } from "react-dnd";
 import EventItem from "./EventItem";
 import { useEvent } from "../context/event.context";
+
 const EventContainer = ({ date }) => {
   const [eventsToDisplay, setEventsToDisplay] = useState([]);
   const { calendarEvent, eventDispatch } = useEvent();
   const [isLoading, setIsLoading] = useState(false);
+
   const [{ isOver }, drop] = useDrop(() => ({
     accept: "div",
     drop: (item) => addEventToContainer(item.id),
@@ -13,6 +15,7 @@ const EventContainer = ({ date }) => {
       isOver: !!monitor.isOver(),
     }),
   }));
+  //console.log(show);
   const modify = (id, date) => {
     eventDispatch({ type: "ModifyEvent", payload: { id: id, date: date } });
   };

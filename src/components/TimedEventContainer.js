@@ -4,6 +4,7 @@ import { useEvent } from "../context/event.context";
 import EventItem from "./EventItem";
 
 const TimedEventContainer = ({ date, startTime, endTime }) => {
+  const [openModal, setOpenModal] = useState(false);
   const [eventsToDisplay, setEventsToDisplay] = useState([]);
   const { calendarEvent, eventDispatch } = useEvent();
   const [isLoading, setIsLoading] = useState(false);
@@ -43,6 +44,7 @@ const TimedEventContainer = ({ date, startTime, endTime }) => {
     <div
       className="Event-Container"
       ref={drop}
+      onClick={() => setOpenModal(true)}
       style={{
         border: isOver ? "2px solid pink" : "",
         backgroundColor: "Highlight",
